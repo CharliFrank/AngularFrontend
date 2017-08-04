@@ -18,7 +18,8 @@
   "dependencies": {
     "angular-moment": "^1.0.1",
     "moment": "momentjs#^2.18.1",
-    "angular-file-upload": "^2.5.0"
+    "angular-file-upload": "^2.5.0",
+    "angular-cloudinary": "^1.2.4"
   },
   "resolutions": {
     "jquery": "~1.10.2"

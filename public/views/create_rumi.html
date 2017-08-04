@@ -9,8 +9,10 @@
 	<div class="form-title">RūMI</div>
 	 <div ng-if="c.create1">
 		<form id="form3" >
+			<img  src="{{c.uploadImage}}" style="width:217px;height:217px;"/>
 			<div class="form-group" >
-
+			<input type="file" file-model="myFile" ng-model="file" name="file" />
+			<button ng-click="c.uploadFile(c.file)">upload me</button>
 			<label>What do you want to share?</label>
 			<input class="form-control" type="text" placeholder="Item Name" id="" maxlength="80" ng-model="name">
 
@@ -110,7 +112,7 @@
 	 </div> 
 		
 	  <div ng-if="c.create3"> 
-		image of sared item  
+		<img src="{{c.uploadImage}}" /> 
 		SHARED ITEM: {{this.currentRumi.name}}
 		DESCRIPTION: {{this.currentRumi.description}}
 		 

@@ -11,6 +11,7 @@ const app = angular.module('rumi', [
   'ui.bootstrap',
   'angularFileUpload',
   'ui.calendar',
+  // 'angular-cloudinary'
 ]);
 
 app.config(['$routeProvider', '$locationProvider',

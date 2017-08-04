@@ -7,15 +7,21 @@ angular.module('rumi.create', [])
     this.create1 = true;
     this.create2 = false;
     this.create3 = false;
+    this.uploadImage ="http://res.cloudinary.com/df94csara/image/upload/v1501776945/image-upload-placeholder_vojeyn.jpg";
     
-    
+    // inject a working provider for fileUpload
+    this.uploadFile = function () {
+      this.uploadImage = "http://res.cloudinary.com/df94csara/image/upload/v1501782872/1200px-MTD_Lawn_Mower_rotusg.jpg";
+      // this.uploadImage = "http://res.cloudinary.com/df94csara/image/upload/v1501776559/images_qp8mwx.png";
+    };
+
     this.firstNext = async function (name, email, description) {
       this.user = RumiService.getUserInfo();
       let emailValidation = await RumiService.validateEmail(email);
       this.otherUserName = emailValidation.username;
       this.otherUserImage = emailValidation.image;
       this.currentRumi['name'] = name;
-      this.currentRumi['image'] = "image goes here";
+      this.currentRumi['image'] = this.uploadImage;
       this.currentRumi['description'] = description;
       this.currentRumi['requester'] = $window.localStorage.getItem('id');
       this.currentRumi['acceptor'] = emailValidation.id;
@@ -28,7 +34,7 @@ angular.module('rumi.create', [])
         this.create2 = true;
         return this.showInput = !this.showInput;
       } else {
-        $window.alert('Please check your email and try again');
+        $window.alert('User not found. Please try again.');
         return $scope.email.text = "";
       }
     }
